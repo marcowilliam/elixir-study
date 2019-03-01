@@ -36,3 +36,27 @@ $ mix test -> run tests
 Doctests:
 They are tests written in code documentation, that goes under the section "Example"
 They are also ran when we run all tests
+
+
+Maps are the same as javascript objecs
+example:
+colors = %{primary: "red", secondary: "blue"}
+colors.primary => "red"
+Updating a map:
+(This is actually does not update the map, it creates a new one with the new values)
+Map.put(colors, :primary, "blue")
+or
+%{ colors | primary: "blue" } -> this way I can only update existing values
+if I want to add a key-value pair I need to do like this:
+Map.put(colors, :secondary_color, "green")
+
+Keyword list:
+example:
+colors = [primary: "blue", secondary: "red"]
+usage:
+query = User.find_where([where: user_age > 10], where: user.subscribed == true])
+when its the last arument of a function we can remove the [] :
+User.find_where(where: user_age > 10], where: user.subscribed == true)
+Also, when we're using kewords is common to remove the () as well:
+User.find_where where: user_age > 10], where: user.subscribed == true
+
